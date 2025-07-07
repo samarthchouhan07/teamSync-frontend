@@ -20,7 +20,7 @@ export default function Login() {
     setLoading(true);
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://teamsync-backend-5s2n.onrender.com/api/auth/login",
         form
       );
       localStorage.setItem("token", res.data.token);

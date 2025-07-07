@@ -14,7 +14,7 @@ export const DashboardTeam = () => {
     queryKey: ["team"],
     queryFn: async () => {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/dashboard/team", {
+      const res = await axios.get("https://teamsync-backend-5s2n.onrender.com/api/dashboard/team", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

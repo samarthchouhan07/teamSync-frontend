@@ -22,7 +22,7 @@ export default function DashboardPage() {
       try {
         const token = localStorage.getItem("token");
         const res = await axios.get(
-          `http://localhost:5000/api/dashboard/${userId}`,
+          `https://teamsync-backend-5s2n.onrender.com/api/dashboard/${userId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

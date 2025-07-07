@@ -16,7 +16,7 @@ export const WorkspaceSettings = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/workspace/my", {
+      .get("https://teamsync-backend-5s2n.onrender.com/api/workspace/my", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -31,7 +31,7 @@ export const WorkspaceSettings = () => {
     e.preventDefault()
 
     await axios.put(
-      `http://localhost:5000/api/workspace/${id}`,
+      `https://teamsync-backend-5s2n.onrender.com/api/workspace/${id}`,
       { name },
       {
         headers: {
@@ -44,7 +44,7 @@ export const WorkspaceSettings = () => {
   };
 
   const handleDelete = async () => {
-    await axios.delete(`http://localhost:5000/api/workspace/${id}`, {
+    await axios.delete(`https://teamsync-backend-5s2n.onrender.com/api/workspace/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -16,7 +16,7 @@ export default function JoinWorkspace() {
   const { data: myWorkspaces,isLoading } = useQuery({
     queryKey: ["myWorkspaces"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/api/workspace/my", {
+      const res = await axios.get("https://teamsync-backend-5s2n.onrender.com/api/workspace/my", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -30,7 +30,7 @@ export default function JoinWorkspace() {
   const handleJoin = async (e) => {
     e.preventDefault();
     const res = await axios.post(
-      "http://localhost:5000/api/workspace/join",
+      "https://teamsync-backend-5s2n.onrender.com/api/workspace/join",
       {
         workspaceId,
       },

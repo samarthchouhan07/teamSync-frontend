@@ -33,7 +33,7 @@ export default function Workspace() {
     queryKey: ["myWorkspaces"],
     queryFn: async () => {
       const { data } = await axios.get(
-        "http://localhost:5000/api/dashboard/my",
+        "https://teamsync-backend-5s2n.onrender.com/api/dashboard/my",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -48,7 +48,7 @@ export default function Workspace() {
   const fetchBoards = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/workspace/${id}/boards`,
+        `https://teamsync-backend-5s2n.onrender.com/api/workspace/${id}/boards`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -72,7 +72,7 @@ export default function Workspace() {
 
   const handleCreateBoard = async () => {
     await axios.post(
-      `http://localhost:5000/api/workspace/${id}/boards`,
+      `https://teamsync-backend-5s2n.onrender.com/api/workspace/${id}/boards`,
       { name: boardName },
       {
         headers: {

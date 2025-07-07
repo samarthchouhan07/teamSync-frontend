@@ -14,7 +14,7 @@ export const DashboardTasks = () => {
     queryKey: ["tasks"],
     queryFn: async () => {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/dashboard/tasks", {
+      const res = await axios.get("https://teamsync-backend-5s2n.onrender.com/api/dashboard/tasks", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

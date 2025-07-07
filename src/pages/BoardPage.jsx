@@ -26,7 +26,7 @@ export default function BoardPage() {
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get(
-        `http://localhost:5000/api/boards/${boardId}/lists`,
+        `https://teamsync-backend-5s2n.onrender.com/api/boards/${boardId}/lists`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -42,7 +42,7 @@ export default function BoardPage() {
     const fetchMembers = async () => {
       const workspaceId = localStorage.getItem("workspaceId");
       const res = await axios.get(
-        `http://localhost:5000/api/workspace/${workspaceId}/members`,
+        `https://teamsync-backend-5s2n.onrender.com/api/workspace/${workspaceId}/members`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -59,7 +59,7 @@ export default function BoardPage() {
     const fetchWorkspaceId = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/board/${boardId}/details`,
+          `https://teamsync-backend-5s2n.onrender.com/api/board/${boardId}/details`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -68,7 +68,7 @@ export default function BoardPage() {
         );
         const workspaceId = res.data.workspaceId;
         const membersRes = await axios.get(
-          `http://localhost:5000/api/workspace/${workspaceId}/members`,
+          `https://teamsync-backend-5s2n.onrender.com/api/workspace/${workspaceId}/members`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -110,7 +110,7 @@ export default function BoardPage() {
       const reorderedTaskIds = sourceTasks.map((t) => t._id);
 
       await axios.patch(
-        `http://localhost:5000/api/tasks/${draggableId}/move`,
+        `https://teamsync-backend-5s2n.onrender.com/api/tasks/${draggableId}/move`,
         {
           toListId: destination.droppableId,
           position: destination.index,
@@ -127,7 +127,7 @@ export default function BoardPage() {
       const reorderedTaskIds = destinationTasks.map((t) => t._id);
 
       await axios.patch(
-        `http://localhost:5000/api/tasks/${draggableId}/move`,
+        `https://teamsync-backend-5s2n.onrender.com/api/tasks/${draggableId}/move`,
         {
           toListId: destination.droppableId,
           position: destination.index,
@@ -141,7 +141,7 @@ export default function BoardPage() {
 
   const fetchLists = async () => {
     const res = await axios.get(
-      `http://localhost:5000/api/boards/${boardId}/lists`,
+      `https://teamsync-backend-5s2n.onrender.com/api/boards/${boardId}/lists`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -153,7 +153,7 @@ export default function BoardPage() {
 
   const handleAddList = async () => {
     const res = await axios.post(
-      `http://localhost:5000/api/workspace/boards/${boardId}/lists`,
+      `https://teamsync-backend-5s2n.onrender.com/api/workspace/boards/${boardId}/lists`,
       { title: newList },
       {
         headers: {
@@ -169,7 +169,7 @@ export default function BoardPage() {
 
   const handleAddTask = async (listId) => {
     const res = await axios.post(
-      `http://localhost:5000/api/workspace/lists/${listId}/tasks`,
+      `https://teamsync-backend-5s2n.onrender.com/api/workspace/lists/${listId}/tasks`,
       { title: newTasks[listId] || "", description: "" },
       {
         headers: {
@@ -188,7 +188,7 @@ export default function BoardPage() {
   };
 
   const handleDeleteTask = async (taskId, listId) => {
-    await axios.delete(`http://localhost:5000/api/tasks/${taskId}`, {
+    await axios.delete(`https://teamsync-backend-5s2n.onrender.com/api/tasks/${taskId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -205,7 +205,7 @@ export default function BoardPage() {
   };
 
   const handleDeleteList = async (listId) => {
-    await axios.delete(`http://localhost:5000/api/lists/${listId}`, {
+    await axios.delete(`https://teamsync-backend-5s2n.onrender.com/api/lists/${listId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -216,7 +216,7 @@ export default function BoardPage() {
 
   const handleSaveTaskFromModal = async () => {
     const res = await axios.patch(
-      `http://localhost:5000/api/tasks/${selectedTask._id}`,
+      `https://teamsync-backend-5s2n.onrender.com/api/tasks/${selectedTask._id}`,
       {
         title: selectedTask.title,
         description: selectedTask.description,

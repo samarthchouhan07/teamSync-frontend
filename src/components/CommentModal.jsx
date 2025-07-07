@@ -28,7 +28,7 @@ export default function CommentModal({ boardId, onClose, token }) {
   const handleAddComment = async () => {
     if (!text.trim()) return;
     await axios.post(
-      `http://localhost:5000/api/comments/${boardId}`,
+      `https://teamsync-backend-5s2n.onrender.com/api/comments/${boardId}`,
       { text },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -38,7 +38,7 @@ export default function CommentModal({ boardId, onClose, token }) {
 
   // const fetchComments = async () => {
   //   const res = await axios.get(
-  //     `http://localhost:5000/api/comments/${boardId}`,
+  //     `https://teamsync-backend-5s2n.onrender.com/api/comments/${boardId}`,
   //     {
   //       headers: {
   //         Authorization: `Bearer ${token}`,
@@ -51,7 +51,7 @@ export default function CommentModal({ boardId, onClose, token }) {
   const { data: comments } = useQuery({
     queryKey: ["comments"],
     queryFn: async () => {
-      return await axios.get(`http://localhost:5000/api/comments/${boardId}`, {
+      return await axios.get(`https://teamsync-backend-5s2n.onrender.com/api/comments/${boardId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

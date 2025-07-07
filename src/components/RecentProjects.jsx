@@ -19,7 +19,7 @@ export const RecentProjects = () => {
     queryKey: ["myWorkspaces"],
     queryFn: async () => {
       const { data } = await axios.get(
-        "http://localhost:5000/api/dashboard/my",
+        "https://teamsync-backend-5s2n.onrender.com/api/dashboard/my",
         {
           headers: {
             Authorization: `Bearer ${token}`,

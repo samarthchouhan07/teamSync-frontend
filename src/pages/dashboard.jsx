@@ -25,7 +25,7 @@ export default function Dashboard() {
     queryFn: async () => {
       const token = localStorage.getItem("token");
 
-      const res = await axios.get("http://localhost:5000/api/workspace/count", {
+      const res = await axios.get("https://teamsync-backend-5s2n.onrender.com/api/workspace/count", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -42,7 +42,7 @@ export default function Dashboard() {
     queryKey: ["taskCount"],
     queryFn: async () => {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/tasks/count", {
+      const res = await axios.get("https://teamsync-backend-5s2n.onrender.com/api/tasks/count", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -60,7 +60,7 @@ export default function Dashboard() {
     queryFn: async () => {
       const token = localStorage.getItem("token");
       const res = await axios.get(
-        "http://localhost:5000/api/workspace/members/count",
+        "https://teamsync-backend-5s2n.onrender.com/api/workspace/members/count",
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -29,7 +29,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const updateProfile = async ({ userId, profileData, token }) => {
   const { data } = await axios.put(
-    `http://localhost:5000/api/auth/profile/${userId}`,
+    `https://teamsync-backend-5s2n.onrender.com/api/auth/profile/${userId}`,
     profileData,
     { headers: { Authorization: `Bearer ${token}` } }
   );
@@ -39,7 +39,7 @@ const updateProfile = async ({ userId, profileData, token }) => {
 const changePassword = async ({ userId, passwordData, token }) => {
   const { currentPassword, newPassword } = passwordData;
   const { data } = await axios.put(
-    `http://localhost:5000/api/auth/password/${userId}`,
+    `https://teamsync-backend-5s2n.onrender.com/api/auth/password/${userId}`,
     { currentPassword, newPassword },
     { headers: { Authorization: `Bearer ${token}` } }
   );
@@ -69,7 +69,7 @@ const SettingsPage = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/auth/${userId}`);
+        const res = await fetch(`https://teamsync-backend-5s2n.onrender.com/api/auth/${userId}`);
         const data = await res.json();
         setProfileData({
           username: data.username,

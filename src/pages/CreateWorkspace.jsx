@@ -17,7 +17,7 @@ export default function CreateWorkspace() {
     try {
       e.preventDefault();
       const res = await axios.post(
-        "http://localhost:5000/api/workspace/create",
+        "https://teamsync-backend-5s2n.onrender.com/api/workspace/create",
         { name },
         {
           headers: {

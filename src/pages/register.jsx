@@ -18,7 +18,7 @@ export default function Register() {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post("http://localhost:5000/api/auth/register", form);
+      await axios.post("https://teamsync-backend-5s2n.onrender.com/api/auth/register", form);
       toast.success("Registered successfully");
       navigate("/login");
     } catch (error) {
